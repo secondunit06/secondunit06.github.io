@@ -194,6 +194,39 @@ img{
     justify-content: center;
 }
 
+.navigation-auto{
+    postion:absolute;
+    display:flex;
+    width:400px;
+    justify-content: center;
+    margin-top:600px;
+}
+
+.navigation-auto div{
+    border:2px solid #ffffff;
+    padding: 5px;
+    border-radius:10px;
+    transition:1s;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+.manual-btn-hover{
+    background: #ffffff;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background:#ffffff;
+}
+#radio2:checked ~ .navigation-auto .auto-btn1{
+    background:#ffffff;
+}
+#radio3:checked ~ .navigation-auto .auto-btn1{
+    background:#ffffff;
+}
+
 .manual-btn{
     border:2px solid #ffffff;
     padding : 5px;
