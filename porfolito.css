@@ -195,7 +195,7 @@ img{
 }
 
 .navigation-auto{
-    postion:absolute;
+    position:absolute;
     display:flex;
     width:400px;
     justify-content: center;
