@@ -97,7 +97,7 @@ body {
 
 .heading .sub{
     position: absolute;
-    text-align: center;
+    text-align:left;
     font-size:20px;
     top:44%;
     left: 33%;
