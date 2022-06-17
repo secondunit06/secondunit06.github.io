@@ -1,20 +1,24 @@
+<style>
+.my_instagram {list-style:none; padding:0; margin:0; display:block;}
+.my_instagram li {float:left; width:20%;}
+.my_instagram li img {max-width:100%;}
+.my_instagram li a {display:block;}
+</style>
+ 
+<!-- 인스타그램 api 로 내 인스타 글 가져오기 -->
 <?php
-//액세스 토큰 발급
-$url = "https://api.instagram.com/oauth/access_token";
-$post_array = array(
-    'client_id'=>'Instagram 앱 ID',
-    'client_secret'=>'Instagram 앱 시크릿 코드',
-    'grant_type'=>'authorization_code',
-    'redirect_uri'=>'유효한 OAuth 리디렉션 URI에 적었던 주소',
-    'code'=>'발급받았던 인증 코드'
-);
+$url = "https://graph.instagram.com/3292738104314754/media?fields=id,media_type,media_url,permalink,thumbnail_url,username,caption&access_token=IGQVJVeVpLY3BxTzNaZAXVhYUE0TWxfM2NhTkpRSUY4REtFRDN1QVFnQlZAPRU52YkVZAZAWU0TG5DaEhYNFdlYmljcFd3Vm5fTktsbHcxdm1MUUF3R09JeXktaFF2R0RoNVlQN0xaVFFpS09nMVFOWDlqMgZDZD";
 $curl = curl_init($url);
-curl_setopt($curl, CURLOPT_POST,true);
-curl_setopt($curl, CURLOPT_POSTFIELDS, $post_array);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);  
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($curl);
 curl_close($curl);
-$result = json_decode($result,true);
-print_r($result);
+ 
+$result = json_decode($result, true);
+$result = $result['data'];
 ?>
+<ul class="my_instagram">
+    <?php for($i=0; $i<count($result); $i++){ ?>
+    <li><a href="<?php echo $result[$i]['permalink']; ?>" target="_blank"><img src="<?php echo $result[$i]['media_url']; ?>"><?php echo $result[$i]['caption']; ?></a></li>
+    <?php } ?>
+<ul>
