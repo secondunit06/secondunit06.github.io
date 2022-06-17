@@ -90,7 +90,7 @@ body {
     font-size: 55px;
     color: white;  
     font-family: 'Tenor Sans', sans-serif;
-    transform: translate(-10%,-35%);
+    transform: translate(10%,-35%);
 }
 
 .heading .sub{
